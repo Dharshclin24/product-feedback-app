@@ -37,17 +37,33 @@ export default function Home() {
     <h1>
       {" "}
       Suggestions!
-      <button id="Homebutt">{/* <Link to="/">Home</Link> */}</button>
+      <button id="FeedBackButt">{/* <Link to="/">Home</Link> */}</button>
       <button id="savedbutt">
         {" "}
-        <ul>
-          <button>All</button>
-          <button>UI</button>
-          <button>UX</button>
-          <button>Enhancement</button>
-          <button>Bug</button>
-          <button>Feature</button>
-        </ul>
+        <div id="myBtnContainer">
+          <button class="btn" onclick="filterSelection('all')">
+            {" "}
+            Show all
+          </button>
+          <button class="btn" onclick="filterSelection('UI')">
+            {" "}
+            UI
+          </button>
+          <button class="btn" onclick="filterSelection('UX')">
+            {" "}
+            UX
+          </button>
+          <button class="btn" onclick="filterSelection('enhancement')">
+            {" "}
+            Enhancement
+          </button>
+          <button class="btn" onclick="filterSelection('Bug')">
+            Bug
+          </button>
+          <button class="btn" onclick="filterSelection('Features')">
+            Features
+          </button>
+        </div>
         <Link to="/FeedBack">FeedBack</Link>
       </button>
     </h1>
