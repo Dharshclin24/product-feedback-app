@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/FeedBack";
+// import About from "./pages/FeedBack";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/FeedBack" element={<FeedBack />} />
+        {/* <Route path="/FeedBack" element={<FeedBack />} /> */}
       </Routes>
     </div>
   );

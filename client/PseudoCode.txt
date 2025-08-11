@@ -1,0 +1,15 @@
+----------3 separate pages--------
+------------------home-----------
+my Company board header left of screen.
+
+responsive nav bar to the right of the screen with feedBack button inside of the navBar.
+
+6 buttons for ALL, UI, UX, Enhancement, Bug, Feature to show suggestions
+
+Cards that renders title, details, and category
+
+
+
+
+-----------feedBack---------
+----------noFeedback----------
