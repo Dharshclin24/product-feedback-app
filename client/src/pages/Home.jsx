@@ -1,10 +1,11 @@
 import { Routes, Route, Link } from "react-router-dom";
+import SuggestionCard from "../Components/SuggestionCard";
 // header(left side my company board non reactive)Use Css grid or flexbox
 //right side nav/bar feedBackButton on the right, icon and counter to the left in the navbar.
 //6 buttons (all, ui, ux,enhancement, bug, features)
 //display suggestion cards
 import { useEffect, useState } from "react";
-import SuggestionCard from "../Components/SuggestionCard";
+
 // import "./index.css";
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
     }
   };
 
-  // useEffect to fetch the newest user data when the component mounts
+  // useEffect to fetch the newest suggestion data when the component mounts
   useEffect(() => {
     getApiInfo();
   }, []); // Empty dependency array means this runs once on mount
@@ -65,7 +66,7 @@ export default function Home() {
         <Link to="/FeedBack">FeedBack</Link>
       </button>
       {gatheredApiInfo.map((input, index) => (
-        <SuggestionCard input={item} key={index}></SuggestionCard>
+        <SuggestionCard input={input} key={index}></SuggestionCard>
       ))}
     </>
   );
