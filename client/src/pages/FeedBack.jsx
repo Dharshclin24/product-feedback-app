@@ -76,7 +76,7 @@ function FeedBack({}) {
             <option value="Bug">Bug</option>
             <option value="Feature">Feature</option>
           </select>
-          <button type="submit">feedback</button>{" "}
+          <button type="submit">Submit FeedBack</button>{" "}
         </div>
       </form>
     </>
