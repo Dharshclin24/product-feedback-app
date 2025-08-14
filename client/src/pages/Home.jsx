@@ -32,39 +32,26 @@ export default function Home() {
 
   return (
     <>
-      {" "}
-      <h1>Suggestions!</h1>
-      <button id="FeedBackButt">
-        <Link to="/">Home</Link>{" "}
-      </button>
-      <button id="savedbutt">
-        {" "}
-        <div id="myBtnContainer">
-          <button class="btn" onclick="filterSelection('all')">
-            {" "}
-            Show all
-          </button>
-          <button class="btn" onClick="filterSelection('UI')">
-            {" "}
-            UI
-          </button>
-          <button class="btn" onClick="filterSelection('UX')">
-            {" "}
-            UX
-          </button>
-          <button class="btn" onClick="filterSelection('enhancement')">
-            {" "}
-            Enhancement
-          </button>
-          <button class="btn" onClick="filterSelection('Bug')">
-            Bug
-          </button>
-          <button class="btn" onClick="filterSelection('Features')">
-            Features
-          </button>
-        </div>
-        <Link to="/FeedBack">FeedBack</Link>
-      </button>
+      <div>
+        <h1>My Company</h1>
+        <h2>Feedback Board</h2>
+      </div>
+
+      <div className="filter-container">
+        {/* filter stuff */}
+        <button>ALL</button>
+        <button>UI</button>
+        <button>UX</button>
+        <button>Enhancement</button>
+        <button>Bug</button>
+        <button>Feature</button>
+      </div>
+
+      <div className="suggestion-container">
+        {/* cards */}
+        <p>suggestions</p>
+      </div>
+
       {gatheredApiInfo.map((input, index) => (
         <SuggestionCard input={input} key={index}></SuggestionCard>
       ))}
