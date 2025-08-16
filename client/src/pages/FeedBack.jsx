@@ -43,8 +43,7 @@ function FeedBack({}) {
   };
   return (
     <>
-      <Link to="/"> {`< Go Back`}</Link>
-      <button>Cancel</button>
+      <h1>Add FeedBack</h1>
       <form onSubmit={handleSubmit}>
         <div id="containerForm">
           {" "}
@@ -67,16 +66,23 @@ function FeedBack({}) {
               placeholder="Tell us the details"
             />
           </label>
-          <label htmlFor="category">Choose a category:</label>
-          <select onChange={handleChange} name="category" id="category">
-            <option value="All">All</option>
-            <option value="UI">UI</option>
-            <option value="UX">UX</option>
-            <option value="Enhancement">Enhancement</option>
-            <option value="Bug">Bug</option>
-            <option value="Feature">Feature</option>
-          </select>
-          <button type="submit">Submit FeedBack</button>{" "}
+          <div className="buttons">
+            <label htmlFor="category">Choose a category:</label>
+            <select onChange={handleChange} name="category" id="category">
+              <option value="All">All</option>
+              <option value="UI">UI</option>
+              <option value="UX">UX</option>
+              <option value="Enhancement">Enhancement</option>
+              <option value="Bug">Bug</option>
+              <option value="Feature">Feature</option>
+            </select>
+          </div>
+          <Link to="/Feedback">
+            <button className="FeedBack"> Add feedback</button>
+          </Link>
+          <Link to="/Home">
+            <button className="Home">Cancel</button>
+          </Link>
         </div>
       </form>
     </>
