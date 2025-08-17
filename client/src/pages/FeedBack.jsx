@@ -43,7 +43,7 @@ function FeedBack({}) {
   };
   return (
     <>
-      <h1>Add FeedBack</h1>
+    <h1>Add FeedBack</h1>
       <form onSubmit={handleSubmit}>
         <div id="containerForm">
           {" "}

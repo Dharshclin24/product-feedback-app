@@ -32,7 +32,16 @@ export default function Home() {
   return (
     <>
       <div className="flex-container">
-        <h1>My Company feedBack Board</h1>
+        <h1>My Company</h1>
+        <h3>Feed Back Board</h3>
+        
+     
+          
+          <div className="flex-container2"></div>
+          {" "}
+          <h2>Suggestions <button claaName="feedbackButton">Add FeedBack</button>
+        </h2>
+        </div>
 
         <div className="buttons">
           <button>ALL</button>
@@ -42,7 +51,7 @@ export default function Home() {
           <button>Bug</button>
           <button>Feature</button>
         </div>
-      </div>
+      
       <div className="card">
         {gatheredApiInfo.map((input, index) => (
           <SuggestionCard input={input} key={index}></SuggestionCard>
