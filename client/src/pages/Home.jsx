@@ -9,7 +9,16 @@ import "../index.css";
 
 export default function Home() {
   const [gatheredApiInfo, setGatheredApiInfo] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
   //created local variable for information to be stored after it has  been gathered.
+  const handleSuggestionFilter = (category) => {
+    if (category == "All") {
+      setSuggestions(gatheredApiInfo);
+    } else {
+      const filteredSuggestions = gatheredApiInfo.filter(=>);
+    }
+    setSuggestions();
+  };
 
   const getApiInfo = async () => {
     try {
@@ -28,50 +37,73 @@ export default function Home() {
   useEffect(() => {
     getApiInfo();
   }, []); // Empty dependency array means this runs once on mount
- 
-  
 
   return (
     <>
-      <div className="flex-container">
+      <div className="icon">
         <h1>My Company</h1>
         <h3>Feed Back Board</h3>
-        <div className="flex-container2"></div>{" "}
+        <div className="flex-container"></div>{" "}
         <h2>
-          Suggestions <button className="hidden">Add FeedBack</button>
+          Suggestions <button className="filter">Add FeedBack</button>
         </h2>
-        <div className="filterDiv">
-          <div id="myBtnContainer">
-            <button class="btn active" onClick="filterSelection('all')">
-              {" "}
-              All
-            </button>
-            <button class="btn" onClick="filterSelection('UI')">
-              {" "}
-              UI
-            </button>
-            <button class="btn" onClick="filterSelection('UX')">
-              {" "}
-              UX
-            </button>
-            <button class="btn" onClick="filterSelection('Enhancement')">
-              {" "}
-              Enhancements
-            </button>
-            <button class="btn" onClick="filterSelection('bug')">
-              {" "}
-              Bug
-            </button>
-            <button class="btn" onClick="filterSelection('feature')">
-              Feature
-            </button>
-          </div>
+      </div>
+      <div className="filterDiv">
+        <div id="myBtnContainer">
+          <button
+            class="btn active"
+            onClick={() => {
+              handleSuggestionFilter("All");
+            }}
+          >
+            {" "}
+            All
+          </button>
+          <button
+            class="btn"
+            onClick={() => {
+              handleSuggestionFilter("UI");
+            }}
+          >
+            {" "}
+            UI
+          </button>
+          <button
+            class="btn"
+            onClick={() => {
+              handleSuggestionFilter("UX");
+            }}
+          >
+            {" "}
+            UX
+          </button>
+          <button
+            class="btn"
+            onClick={() => {
+              handleSuggestionFilter("Enhancements");
+            }}
+          >
+            {" "}
+            Enhancements
+          </button>
+          <button
+            class="btn"
+            onClick={() => {
+              handleSuggestionFilter("Bug");
+            }}
+          >
+            {" "}
+            Bug
+          </button>
+          <button
+            class="btn"
+            onClick={() => {
+              handleSuggestionFilter("Feature");
+            }}
+          >
+            Feature
+          </button>
         </div>
-        {/* <button>UI</button>
-          <button>UX</button>
-          <button>Enhancement</button>
-          <button>Bug</button>
-          <button>Feature</button> */}
       </div>
 
       <div className="card">
