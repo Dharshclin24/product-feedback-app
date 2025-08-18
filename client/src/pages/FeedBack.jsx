@@ -66,7 +66,7 @@ function FeedBack({}) {
               placeholder="Tell us the details"
             />
           </label>
-          {/* <div className="buttons">
+          <div className="buttons">
             <label htmlFor="category">Choose a category:</label>
             <select onChange={handleChange} name="category" id="category">
               <option value="All">All</option>
@@ -76,7 +76,7 @@ function FeedBack({}) {
               <option value="Bug">Bug</option>
               <option value="Feature">Feature</option>
             </select>
-          </div> */}
+          </div>
           <Link to="/Feedback">
             <button className="FeedBack"> Add feedback</button>
           </Link>
