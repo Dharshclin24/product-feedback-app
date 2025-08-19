@@ -15,9 +15,11 @@ export default function Home() {
     if (category == "All") {
       setSuggestions(gatheredApiInfo);
     } else {
-      const filteredSuggestions = gatheredApiInfo.filter(=>);
+      const filteredSuggestions = gatheredApiInfo.filter(
+        (gatheredApiInfo) => gatheredApiInfo.category === category
+      );
+      setSuggestions(filteredSuggestions);
     }
-    setSuggestions();
   };
 
   const getApiInfo = async () => {
@@ -35,7 +37,7 @@ export default function Home() {
 
   // useEffect to fetch the newest suggestion data when the component mounts
   useEffect(() => {
-    getApiInfo();
+    getApiInfo(filteredSuggestions);
   }, []); // Empty dependency array means this runs once on mount
 
   return (
@@ -43,15 +45,21 @@ export default function Home() {
       <div className="icon">
         <h1>My Company</h1>
         <h3>Feed Back Board</h3>
-        <div className="flex-container"></div>{" "}
-        <h2>
-          Suggestions <button className="filter">Add FeedBack</button>
-        </h2>
+      </div>
+
+      <div className="suggestionsHeader">
+        <img
+          src="../assets/suggestions/icon-suggestions.svg"
+          alt="suggestions Icon"
+        />
+        {/* <p>{setSuggestions.length} Suggestions</p> */}
+
+        <button className="addFeedback">+ Add feedback</button>
       </div>
       <div className="filterDiv">
         <div id="myBtnContainer">
           <button
-            class="btn active"
+            className="btn active"
             onClick={() => {
               handleSuggestionFilter("All");
             }}
@@ -60,7 +68,7 @@ export default function Home() {
             All
           </button>
           <button
-            class="btn"
+            className="btn"
             onClick={() => {
               handleSuggestionFilter("UI");
             }}
@@ -69,7 +77,7 @@ export default function Home() {
             UI
           </button>
           <button
-            class="btn"
+            className="btn"
             onClick={() => {
               handleSuggestionFilter("UX");
             }}
@@ -78,7 +86,7 @@ export default function Home() {
             UX
           </button>
           <button
-            class="btn"
+            className="btn"
             onClick={() => {
               handleSuggestionFilter("Enhancements");
             }}
@@ -87,7 +95,7 @@ export default function Home() {
             Enhancements
           </button>
           <button
-            class="btn"
+            className="btn"
             onClick={() => {
               handleSuggestionFilter("Bug");
             }}
@@ -96,7 +104,7 @@ export default function Home() {
             Bug
           </button>
           <button
-            class="btn"
+            className="btn"
             onClick={() => {
               handleSuggestionFilter("Feature");
             }}
@@ -107,7 +115,7 @@ export default function Home() {
       </div>
 
       <div className="card">
-        {gatheredApiInfo.map((input, index) => (
+        {suggestions.map((input, index) => (
           <SuggestionCard input={input} key={index}></SuggestionCard>
         ))}
       </div>
