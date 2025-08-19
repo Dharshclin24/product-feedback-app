@@ -58,7 +58,7 @@ export default function Home() {
           src="../assets/suggestions/icon-suggestions.svg"
           alt="suggestions Icon"
         />
-        {/* <p>{setSuggestions.length} Suggestions</p> */}
+        <p>{suggestions.length} Suggestions</p>
 
         <button className="addFeedback">+ Add feedback</button>
       </div>
@@ -121,9 +121,12 @@ export default function Home() {
       </div>
 
       <div className="card">
+        (!suggestion) ? ({" "}
         {suggestions?.map((input, index) => (
           <SuggestionCard input={input} key={index}></SuggestionCard>
         ))}
+        ) : (<p>No FeedBack</p>);
+        
       </div>
     </>
   );
