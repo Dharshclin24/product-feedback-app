@@ -31,7 +31,7 @@ export default function Home() {
       const data = await response.json();
       console.log(data);
       await setGatheredApiInfo(data);
-      handleSuggestionFilter("All");
+      setSuggestions(data);
       console.log();
 
       //saved the api data into the state variable called gathered ApiInfo state variable and changed the value to data
