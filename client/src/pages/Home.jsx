@@ -14,12 +14,15 @@ export default function Home() {
   const handleSuggestionFilter = (category) => {
     if (category == "All") {
       setSuggestions(gatheredApiInfo);
+      console.log(gatheredApiInfo, "allSuggestions");
     } else {
       const filteredSuggestions = gatheredApiInfo.filter(
-        (gatheredApiInfo) => gatheredApiInfo.category === category
+        (apiSuggestion) => apiSuggestion.category === category
       );
+      console.log(filteredSuggestions, "filt lab");
       setSuggestions(filteredSuggestions);
     }
+    // console.log(suggestions, "sugg Label");
   };
 
   const getApiInfo = async () => {
@@ -27,7 +30,10 @@ export default function Home() {
       const response = await fetch("/api/get-all-suggestions");
       const data = await response.json();
       console.log(data);
-      setGatheredApiInfo(data);
+      await setGatheredApiInfo(data);
+      handleSuggestionFilter("All");
+      console.log();
+
       //saved the api data into the state variable called gathered ApiInfo state variable and changed the value to data
       //data is passed as props to the other pages for the information gathered.
     } catch (error) {
@@ -37,7 +43,7 @@ export default function Home() {
 
   // useEffect to fetch the newest suggestion data when the component mounts
   useEffect(() => {
-    getApiInfo(filteredSuggestions);
+    getApiInfo();
   }, []); // Empty dependency array means this runs once on mount
 
   return (
@@ -115,7 +121,7 @@ export default function Home() {
       </div>
 
       <div className="card">
-        {suggestions.map((input, index) => (
+        {suggestions?.map((input, index) => (
           <SuggestionCard input={input} key={index}></SuggestionCard>
         ))}
       </div>
