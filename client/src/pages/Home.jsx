@@ -121,12 +121,9 @@ export default function Home() {
       </div>
 
       <div className="card">
-        (!suggestion) ? ({" "}
         {suggestions?.map((input, index) => (
           <SuggestionCard input={input} key={index}></SuggestionCard>
         ))}
-        ) : (<p>No FeedBack</p>);
-        
       </div>
     </>
   );
